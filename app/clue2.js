@@ -5,7 +5,11 @@
 // Given two numbers, write a function that will return  the larger number
 
 function largerNum(num1, num2) {
-  // TODO YOUR CODE HERE
+  if (num1 > num2) {
+    return num1
+  } else {
+    return num2
+  }
 }
 
 
@@ -20,8 +24,21 @@ function largerNum(num1, num2) {
 // output: "F"
 
 function crimeGrader(successful, total) {
-  // TODO YOUR CODE HERE
+  let grade = (successful / total * 100)
+  if (grade >= 90) {
+    return "A"
+  } else if (grade >= 80) {
+    return "B"
+  } else if (grade >= 70) {
+    return "C"
+  } else if (grade >= 60) {
+    return "D"
+  } else if (grade <= 59) {
+    return "E"
+  }
+
 }
+
 
 
 // To help us better catch the associate we need to know when they are most active.
@@ -32,7 +49,20 @@ function crimeGrader(successful, total) {
 //   night is between 10pm and 4am (22 -24 and 1 - 4)
 //   Make sure your ranges are inclusive
 function timeOfDay(hour) {
-  // TODO YOUR CODE HERE
+  let morning = range(5, 11)
+  let afternoon = range(12, 17)
+  let evening = range(18, 21)
+  let night = range(1, 4)
+
+  if (hour = morning) {
+    return "morning"
+  } else if (hour = afternoon) {
+    return "afternoon"
+  } else if (hour = evening) {
+    return "evening"
+  } else if (hour = night) {
+    return "night"
+  }
 }
 
 // Our surveillance team finds the closer we get to catching the associate the hotter the person gets, we can use this to narrow down the person

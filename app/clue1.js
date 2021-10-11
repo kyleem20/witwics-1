@@ -3,7 +3,8 @@
 // A message sent to her associate requires we decode it using a letter within a certain position of a string. 
 // Ex: ('Cryptology', 3) should return 'p'
 function letterAtPosition(str, position) {
-  // TODO YOUR CODE HERE
+  let out = str[position]
+  return out
 }
 
 
@@ -11,19 +12,28 @@ function letterAtPosition(str, position) {
 
 // Write a function that will join two strings with an optional seperating character 
 function concat(str1, str2, seperator = " ") {
-  // TODO YOUR CODE HERE
+  let spacer = str1 + seperator + str2
+  return spacer
 }
 
 // Our cryptologists have discovered that some of the letters that were seperated out should also be capitalized.
 
 // Write a function that will capitalize the letter at a given position and return it
 function capitalizer(str, position) {
-  // TODO YOUR CODE HERE
+  let capitalize = str[position].toUpperCase()
+  return capitalize
 }
 
 
 // There are a few key words we need to look for to find if they are in the message
 // write a function that will take in two strings and identify if the first string 'includes' the second
 function messageContainsPhrase(message, phrase) {
-  // TODO YOUR CODE HERE
+
+  if (message.includes(phrase)) {
+
+    return true;
+  } else {
+    return false;
+  }
+
 }
