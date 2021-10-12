@@ -49,18 +49,18 @@ function crimeGrader(successful, total) {
 //   night is between 10pm and 4am (22 -24 and 1 - 4)
 //   Make sure your ranges are inclusive
 function timeOfDay(hour) {
-  let morning = range(5, 11)
-  let afternoon = range(12, 17)
-  let evening = range(18, 21)
-  let night = range(1, 4)
+  let morning = (hour >= 5 && hour <= 11)
+  let afternoon = (hour >= 12 && hour <= 17)
+  let evening = (hour >= 18 && hour <= 21)
+  let night = ((hour >= 1 && hour <= 4) || (hour >= 22 && hour <= 24))
 
-  if (hour = morning) {
+  if (morning) {
     return "morning"
-  } else if (hour = afternoon) {
+  } else if (afternoon) {
     return "afternoon"
-  } else if (hour = evening) {
+  } else if (evening) {
     return "evening"
-  } else if (hour = night) {
+  } else if (night) {
     return "night"
   }
 }
@@ -69,7 +69,16 @@ function timeOfDay(hour) {
 
 // Write a function that will take in a number and return 'suspicious' if it indicates the person is over 98.6° and if the person is at or above 103° 'very suspicious', if it is under return 'not suspicious', (hint: try this with string concatenation)
 function isSuspicious(temp) {
-  // TODO YOUR CODE HERE
+  let sus = "suspicious"
+  let suspic = "very "
+  let not = "not "
+  if (temp > 98.6 && temp < 103) {
+    return sus
+  } else if (temp >= 103) {
+    return suspic += sus
+  } else if (temp <= 98.6) {
+    return not += sus
+  }
 }
 
 // We think we might have found the associate, and have added a tracker to their car, to find where the associate is hiding we need to know when their car is stopped
@@ -85,10 +94,15 @@ let exampleCar = {
 }
 
 function isStopped(car) {
-  // TODO YOUR CODE HERE  
+  if (car.moving) {
+    return false
+  }
+  else {
+    return true
+  }
 }
 
-// We have found everything we need to capture the associate, to make sure they don't elude us we want to make sure we only capture them when they are at home and their asleep.
+// We have found everything we need to capture the associate, to make sure they don't elude us we want to make sure we only capture them when they are at home and the're asleep.
 
 // Write a function that returns true if associate is at home and asleep, or false if either one of the statements is false
 
@@ -99,5 +113,9 @@ let suspect = {
 }
 
 function attemptCapture(suspect) {
-  // TODO YOUR CODE HERE
+  if (suspect.atHome && suspect.asleep) {
+    return true
+  } else {
+    return false
+  }
 }
