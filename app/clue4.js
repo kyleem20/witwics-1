@@ -11,7 +11,39 @@
 // output: 7
 
 function daysPosition(day, offset) {
-  // TODO YOUR CODE HERE
+  let out = 0
+  switch (day.toLowerCase()) {
+    case 'sunday':
+      out = 1
+      break
+    case 'monday':
+      out = 2
+      break
+    case 'tuesday':
+      out = 3
+      break
+    case 'wednesday':
+      out = 4
+      break
+    case 'thursday':
+      out = 5
+      break
+    case 'friday':
+      out = 6
+      break
+    case 'saturday':
+      out = 7
+      break
+    default:
+      return "That's not a day of the week"
+  }
+  if (offset) {
+    out -= 1
+    if (out === 0) {
+      out = 7
+    }
+  }
+  return out
 }
 
 
@@ -32,11 +64,38 @@ function daysPosition(day, offset) {
  */
 
 function golfScore(score, par) {
-  // TODO YOUR CODE HERE
+  let scoreCount = score - par
+  let golf = ''
+
+  switch ((scoreCount)) {
+    case -3:
+      golf = "ace"
+      break
+    case -2:
+      golf = "eagle"
+      break
+    case -1:
+      golf = "birdie"
+      break
+    case 0:
+      golf = "par"
+      break
+    case +1:
+      golf = "bogie"
+      break
+    case +2:
+      golf = "double bogie"
+      break
+  }
+  if (golf) {
+    return golf
+  } else {
+    golf = "ouch"
+    return golf
+  }
+
+
 }
-
-
-
 // We haven't had much success with our previous attempts so we have decided to try to get answers out of her accomplice, they are a notorious gambler so we challenged them to a game of blackjack. The stakes are too high to lose, so we are going to have to cheat.
 
 // In the casino game Blackjack, a player can gain an advantage by keeping track of the relative number of high and low cards remaining in the deck. This is called card counting. 
@@ -58,5 +117,52 @@ function golfScore(score, par) {
 let count = 0
 
 function cardCounter(card) {
-  // TODO YOUR CODE HERE
+  switch (card) {
+    case '2':
+      count = 1
+      break;
+    case '3':
+      count = 1
+      break;
+    case '4':
+      count = 1
+      break;
+    case '5':
+      count = 1
+      break;
+    case '6':
+      count = 1
+      break;
+    case '7':
+      count = 0
+      break;
+    case '8':
+      count = 0
+      break;
+    case '9':
+      count = 0
+      break;
+    case '10':
+      count = -1
+      break;
+    case 'J':
+      count = -1
+      break;
+    case 'Q':
+      count = -1
+      break;
+    case 'K':
+      count == -1
+      break;
+    case 'A':
+      count = -1
+      break;
+
+  }
+  if (count > 0) {
+    return count + " bet"
+  } else {
+    return count + " hold"
+  }
+
 }
